@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple_500"
+    tools:context=".client.PersonalInfoPage">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="90dp"
+                android:paddingRight="90dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:textAlignment="center"
+                android:text="Información Personal"
+                android:textColor="@color/purple_700"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/txtInfoName"
+                android:layout_width="225dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="50dp"
+                android:background="#FFFEFE"
+                android:hint="Nombre Completo"
+                android:inputType="none" />
+
+            <EditText
+                android:id="@+id/txtInfoSalary"
+                android:layout_width="225dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="50dp"
+                android:background="#FFFFFF"
+                android:hint="Salario"
+                android:inputType="none" />
+
+            <EditText
+                android:id="@+id/txtInfoPhone"
+                android:layout_width="225dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="50dp"
+                android:background="#FFFFFF"
+                android:hint="Teléfono"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/txtInfoBirthdate"
+                android:layout_width="225dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="50dp"
+                android:layout_gravity="center"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:hint="Fecha de Nacimiento"
+                android:inputType="none"/>
+
+            <Spinner
+                android:id="@+id/spinnerInfoStatus"
+                android:layout_width="225dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="50dp"
+                android:layout_gravity="center"
+                android:background="#FFFFFF" />
+
+            <EditText
+                android:id="@+id/txtInfoAddress"
+                android:layout_width="225dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="50dp"
+                android:background="#FFFFFF"
+                android:gravity="start|top"
+                android:hint="Dirección"
+                android:inputType="textMultiLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnUpdateInfo"
+                    android:layout_width="169dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Actualizar"
+                    android:textColor="@color/white"></Button>
+
+                <Button
+                    android:id="@+id/btnInfoBack"
+                    android:layout_width="169dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Volver"
+                    android:textColor="@color/white"></Button>
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
