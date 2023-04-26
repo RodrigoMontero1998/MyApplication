@@ -36,17 +36,19 @@ public class ClientPage extends AppCompatActivity {
         tvCurrentClient =  findViewById(R.id.tvCurrentClient);
 
         Intent intent = getIntent();
-        String CURRENT_CLIENT_ID = intent.getStringExtra("CURRENT_CLIENT_ID");
+        CURRENT_CLIENT_ID = intent.getStringExtra("CURRENT_CLIENT_ID");
         tvCurrentClient.setText(CURRENT_CLIENT_ID);
     }
 
     public void calculator(){
         Intent intent = new Intent(this, CalculatorPage.class);
+        intent.putExtra("CURRENT_CLIENT_ID", CURRENT_CLIENT_ID);
         startActivity(intent);
     }
 
     public void savings(){
         Intent intent = new Intent(this, MySavingsPage.class);
+        intent.putExtra("CURRENT_CLIENT_ID", CURRENT_CLIENT_ID);
         startActivity(intent);
     }
 
