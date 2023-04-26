@@ -29,7 +29,7 @@ public class CreateClient extends AppCompatActivity {
 
         client = new Clients(db);
 
-        spinnerResult = findViewById(R.id.spinnerInfoStatus);
+        spinnerResult = findViewById(R.id.spinnerClientStatus);
         ArrayAdapter<String> adaptador1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,client.getAllCivilStatus());
 
         spinnerResult.setAdapter(adaptador1);

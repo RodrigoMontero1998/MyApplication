@@ -20,7 +20,7 @@ public class PersonalInfoPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_info_page);
 
-        nameInfo = findViewById(R.id.txtInfoName);
+        nameInfo = findViewById(R.id.txtClientName);
         nameInfo.setKeyListener(null);
         nameInfo.setText(name);
 
