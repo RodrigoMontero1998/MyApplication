@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -21,7 +20,7 @@ public class MySavingsPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_savings_page);
 
-        activeSavingLayout = findViewById(R.id.layActiveSaving);
+        activeSavingLayout = findViewById(R.id.payLoanLayout);
     }
 
     public void activeSaving(View view){
