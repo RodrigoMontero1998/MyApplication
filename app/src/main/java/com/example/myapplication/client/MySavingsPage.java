@@ -20,7 +20,7 @@ public class MySavingsPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_savings_page);
 
-        activeSavingLayout = findViewById(R.id.payLoanLayout);
+        activeSavingLayout = findViewById(R.id.layActiveSaving);
     }
 
     public void activeSaving(View view){
