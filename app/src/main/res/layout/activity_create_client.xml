@@ -10,8 +10,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-62dp">
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-176dp">
 
         <LinearLayout
             android:id="@+id/txtClientSalary"
@@ -128,6 +128,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="50dp"
+                android:onClick="btnCreateClient"
                 android:text="Crear Cliente"
                 android:textColor="#FFFFFF" />
 
