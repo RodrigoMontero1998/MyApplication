@@ -210,6 +210,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     CURRENT_CLIENT = login.getCurrentClient(CURRENT_USER);
                     intent = new Intent(this, ClientPage.class);
+                    intent.putExtra("CURRENT_CLIENT_ID", CURRENT_CLIENT.client_id);
                     Toast.makeText(getApplicationContext(), "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
                 }
                 startActivity(intent);
