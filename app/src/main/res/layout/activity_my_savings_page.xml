@@ -145,13 +145,11 @@
                             android:textColor="@color/black"
                             android:textSize="18dp"></TextView>
 
-                        <ImageButton
-                            android:id="@+id/btnActiveChristmas"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="#4CAF50"
-                            android:contentDescription="Activar Ahorro"
-                            android:foreground="?android:attr/textCheckMark"></ImageButton>
+                        <Switch
+                            android:id="@+id/switch1"
+                            android:layout_width="6dp"
+                            android:layout_height="50dp" />
+
                     </TableRow>
 
                     <TableRow
@@ -180,14 +178,10 @@
                             android:textColor="@color/black"
                             android:textSize="18dp"></TextView>
 
-                        <ImageButton
-                            android:id="@+id/btnActiveSchool"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="#4CAF50"
-                            android:contentDescription="Activar ahorro"
-                            android:foreground="?android:attr/textCheckMark">
-                        </ImageButton>
+                        <Switch
+                            android:id="@+id/switch2"
+                            android:layout_width="6dp"
+                            android:layout_height="50dp" />
                     </TableRow>
 
                     <TableRow
@@ -216,14 +210,10 @@
                             android:textColor="@color/black"
                             android:textSize="18dp"></TextView>
 
-                        <ImageButton
-                            android:id="@+id/btnActiveMarchamo"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="#4CAF50"
-                            android:contentDescription="Activar Ahorro"
-                            android:foreground="?android:attr/textCheckMark">
-                        </ImageButton>
+                        <Switch
+                            android:id="@+id/switch3"
+                            android:layout_width="6dp"
+                            android:layout_height="50dp" />
                     </TableRow>
 
                     <TableRow
@@ -252,14 +242,10 @@
                             android:textColor="@color/black"
                             android:textSize="18dp"></TextView>
 
-                        <ImageButton
-                            android:id="@+id/btnActiveExtra"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="#4CAF50"
-                            android:contentDescription="Activar Ahorro"
-                            android:foreground="?android:attr/textCheckMark">
-                        </ImageButton>
+                        <Switch
+                            android:id="@+id/switch4"
+                            android:layout_width="6dp"
+                            android:layout_height="50dp" />
                     </TableRow>
                 </TableLayout>
 

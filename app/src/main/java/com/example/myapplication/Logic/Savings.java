@@ -20,6 +20,10 @@ public class Savings {
         return db.savingDao().getAllSavingsByClient(client);
     }
 
+    public Saving getAllSavingsByClientandType(String client,String savingType){
+        return db.savingDao().getAllSavingsByClientandType(client,savingType);
+    }
+
     public void AllocateSavingToClient(String clientId, Double monthly_amount,
                                                Double balance, String savingType,Boolean isActive) throws Exception {
         Saving saving = new Saving(clientId,
@@ -64,5 +68,23 @@ public class Savings {
             throw new Exception("Error al intentar retirar del ahorro");
         }
     }
+
+    public void ActivateSavingByNumber(String saving_number,Double monthly_amount) throws Exception {
+        try {
+            db.savingDao().updateSaving(saving_number,monthly_amount,true);
+            db.savingDao().updateBalance(saving_number,monthly_amount);
+        }catch (Exception e){
+            throw new Exception("Error al intentar activar del ahorro");
+        }
+    }
+
+    public void DesactivateSavingByNumber(String saving_number) throws Exception {
+        try {
+            db.savingDao().updateSaving(saving_number,0.00,false);
+        }catch (Exception e){
+            throw new Exception("Error al intentar activar del ahorro");
+        }
+    }
+
 
 }
