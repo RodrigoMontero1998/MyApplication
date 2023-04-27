@@ -42,6 +42,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:textColor="@color/purple_700" />
 
+
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="300dp">
@@ -64,23 +65,22 @@
                         <View
                             android:layout_width="150dp"
                             android:layout_height="0dp"
-                            android:layout_weight="1">
-                        </View>
+                            android:layout_weight="1"></View>
+
                         <View
                             android:layout_width="100dp"
                             android:layout_height="0dp"
-                            android:layout_weight="1">
-                        </View>
+                            android:layout_weight="1"></View>
+
                         <View
                             android:layout_width="100dp"
                             android:layout_height="0dp"
-                            android:layout_weight="1">
-                        </View>
+                            android:layout_weight="1"></View>
+
                         <View
                             android:layout_width="70dp"
                             android:layout_height="0dp"
-                            android:layout_weight="1">
-                        </View>
+                            android:layout_weight="1"></View>
 
                     </TableRow>
 
@@ -102,7 +102,7 @@
                             android:text="Saldo"
                             android:textColor="@color/purple_700"
                             android:textSize="20dp"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:text="Cuota"
@@ -119,21 +119,19 @@
                     </TableRow>
 
 
-
-
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
                         android:background="@color/white">
 
                         <TextView
-                            android:text="Navideño"
-                            android:paddingLeft="10dp"
-                            android:gravity="left|center_vertical"
                             android:layout_height="50dp"
-                            android:textStyle="bold"
+                            android:gravity="left|center_vertical"
+                            android:paddingLeft="10dp"
+                            android:text="Navideño"
+                            android:textColor="@color/black"
                             android:textSize="20dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textStyle="bold"></TextView>
 
                         <TextView
                             android:id="@+id/balanceChristmas"
@@ -153,8 +151,7 @@
                             android:layout_height="match_parent"
                             android:background="#4CAF50"
                             android:contentDescription="Activar Ahorro"
-                            android:foreground="?android:attr/textCheckMark"
-                            android:onClick="activeSaving"></ImageButton>
+                            android:foreground="?android:attr/textCheckMark"></ImageButton>
                     </TableRow>
 
                     <TableRow
@@ -163,13 +160,13 @@
                         android:background="@color/white">
 
                         <TextView
-                            android:text="Escolar"
-                            android:paddingLeft="10dp"
-                            android:gravity="left|center_vertical"
                             android:layout_height="50dp"
-                            android:textStyle="bold"
+                            android:gravity="left|center_vertical"
+                            android:paddingLeft="10dp"
+                            android:text="Escolar"
+                            android:textColor="@color/black"
                             android:textSize="20dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textStyle="bold"></TextView>
 
                         <TextView
                             android:id="@+id/balanceSchool"
@@ -189,7 +186,7 @@
                             android:layout_height="match_parent"
                             android:background="#4CAF50"
                             android:contentDescription="Activar ahorro"
-                            android:foreground="?android:attr/textCheckMark">>
+                            android:foreground="?android:attr/textCheckMark">
                         </ImageButton>
                     </TableRow>
 
@@ -199,13 +196,13 @@
                         android:background="@color/white">
 
                         <TextView
-                            android:text="Marchamo"
-                            android:paddingLeft="10dp"
-                            android:gravity="left|center_vertical"
                             android:layout_height="50dp"
-                            android:textStyle="bold"
+                            android:gravity="left|center_vertical"
+                            android:paddingLeft="10dp"
+                            android:text="Marchamo"
+                            android:textColor="@color/black"
                             android:textSize="20dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textStyle="bold"></TextView>
 
                         <TextView
                             android:id="@+id/balanceMarchamo"
@@ -225,7 +222,7 @@
                             android:layout_height="match_parent"
                             android:background="#4CAF50"
                             android:contentDescription="Activar Ahorro"
-                            android:foreground="?android:attr/textCheckMark">>
+                            android:foreground="?android:attr/textCheckMark">
                         </ImageButton>
                     </TableRow>
 
@@ -235,13 +232,13 @@
                         android:background="@color/white">
 
                         <TextView
-                            android:text="Extraordinario"
-                            android:paddingLeft="10dp"
-                            android:gravity="left|center_vertical"
                             android:layout_height="50dp"
-                            android:textStyle="bold"
+                            android:gravity="left|center_vertical"
+                            android:paddingLeft="10dp"
+                            android:text="Extraordinario"
+                            android:textColor="@color/black"
                             android:textSize="20dp"
-                            android:textColor="@color/black"></TextView>
+                            android:textStyle="bold"></TextView>
 
                         <TextView
                             android:id="@+id/balanceExtra"
@@ -261,13 +258,12 @@
                             android:layout_height="match_parent"
                             android:background="#4CAF50"
                             android:contentDescription="Activar Ahorro"
-                            android:foreground="?android:attr/textCheckMark">>
+                            android:foreground="?android:attr/textCheckMark">
                         </ImageButton>
                     </TableRow>
                 </TableLayout>
 
             </HorizontalScrollView>
-
 
             <LinearLayout
                 android:id="@+id/layActiveSaving"
@@ -289,6 +285,7 @@
                     android:textStyle="bold"></TextView>
 
                 <EditText
+                    android:id="@+id/txtSavingAmount"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -298,10 +295,12 @@
                     android:inputType="number"></EditText>
 
                 <Button
+                    android:id="@+id/btnActiveSaving"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginTop="30dp"
+                    android:onClick="toSaving"
                     android:text="Agregar"
                     android:textColor="@color/white"></Button>
 
