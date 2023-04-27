@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.DataBaseConection.Client;
 import com.example.myapplication.DataBaseConection.Credit;
@@ -193,23 +194,46 @@ public class MainActivity extends AppCompatActivity {
 
     public void LoginMain(){
 
+
+
         try{
             Intent intent;
             String user = username.getText().toString();
             String pass = password.getText().toString();
-            CURRENT_USER =  login.Login(user,pass);
-            //tvCurrentUser.setText( CURRENT_USER);
-            if(CURRENT_USER.equals("Admin")){
-                intent = new Intent(this, AdminPage.class);
-            }else{
-                CURRENT_CLIENT = login.getCurrentClient(CURRENT_USER);
-                intent = new Intent(this, ClientPage.class);
+            if(isEmpty(user, pass)) {
+                CURRENT_USER = login.Login(user, pass);
+                //tvCurrentUser.setText( CURRENT_USER);
+
+                if (CURRENT_USER.equals("Admin")) {
+                    intent = new Intent(this, AdminPage.class);
+                    Toast.makeText(getApplicationContext(), "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+                } else {
+                    CURRENT_CLIENT = login.getCurrentClient(CURRENT_USER);
+                    intent = new Intent(this, ClientPage.class);
+                    intent.putExtra("CURRENT_CLIENT_ID", CURRENT_CLIENT.client_id);
+                    Toast.makeText(getApplicationContext(), "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+                }
+                startActivity(intent);
             }
-            startActivity(intent);
+            else
+                Toast.makeText(getApplicationContext(), "Inicio de sesión fallido", Toast.LENGTH_SHORT).show();
         }
         catch (Exception e) {
             tvLoginError.setText(e.getMessage());
+            Toast.makeText(getApplicationContext(), "Inicio de sesión fallido", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public boolean isEmpty(String user, String pass){
+        if (user.isEmpty()){
+            username.setError("El campo usuario está vacío");
+            return false;
+        }
+        else if (pass.isEmpty()) {
+            password.setError("El campo contraseña está vacío");
+            return false;
+        }
+        return true;
     }
 
     public void getSavingCurrentClient(){
