@@ -46,7 +46,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextNumber4"
+                    android:id="@+id/etSearchClientById"
                     android:layout_width="240dp"
                     android:layout_height="53dp"
                     android:layout_marginLeft="50dp"
@@ -65,7 +65,10 @@
                     android:layout_marginRight="50dp"
                     android:background="@color/purple_200"
                     android:elevation="50dp"
-                    android:foreground="@android:drawable/ic_menu_search"></ImageButton>
+                    android:foreground="@android:drawable/ic_menu_search"
+                    android:onClick="btnSearchClient"
+                    android:contentDescription="Buscar clientes" />
+
             </LinearLayout>
 
             <TableLayout
@@ -115,6 +118,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/etClientId"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -135,6 +139,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/etName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -155,6 +160,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/etSalary"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -175,6 +181,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/etTelephoneNumber"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -195,6 +202,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/etBirhtdate"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -215,6 +223,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/etCivilStatus"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -235,6 +244,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/etAddress"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
