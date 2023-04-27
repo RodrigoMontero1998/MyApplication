@@ -73,11 +73,11 @@ public class CalculatorPage extends AppCompatActivity {
             }
             int termInYears= getTermInYers(rdGrpTermInYers);
             if(termInYears == -1){
-                throw new Exception("Error: Tipo de prestamo no seleccionado");
+                throw new Exception("Error: Plazo no seleccionado");
             }
             double annualInterestRate = getAnnualInterestRate(rdGrpCreditType);
             if(annualInterestRate== 0.00){
-                throw new Exception("Error: Plazo no seleccionado");
+                throw new Exception("Error: Tipo de crédito no seleccionado");
             }
             return credits.calculateMonthlyPayment(amount,termInYears,annualInterestRate);
         }
