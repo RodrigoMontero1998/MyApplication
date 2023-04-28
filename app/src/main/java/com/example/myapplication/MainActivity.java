@@ -18,15 +18,9 @@ import com.example.myapplication.Logic.*;
 import com.example.myapplication.admin.AdminPage;
 import com.example.myapplication.client.ClientPage;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
 
     AppDataBase db = null;
-
-    List<Client> clientsList = new ArrayList<>();
-    List<Saving> savingslist = new ArrayList<>();
 
     String CURRENT_USER = null;
     Client CURRENT_CLIENT = null;
@@ -78,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         //getSavingByClients();
 
-       // InsertTypeCredits();
+        //InsertTypeCredits();
         //getTypeCredits();
 
        // getSavingByClients();
@@ -122,42 +116,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void getClients(){
-        try {
-            String clients = "";
-            for (Client c:admin.getAllClients()
-                 ) {
-                clients = clients + c.name + "\n";
-            }
-            tvClients.setText( clients);
-        } catch (Exception e) {
-            tvAhorros.setText(e.getMessage());
-        }
-    }
-
-    public void getSavingByClients(){
-        try {
-            String clients = "";
-            for (Client c:admin.getAllClients()
-            ) {
-                clients = clients + c.name +" " + c.client_id + " "+ c.salary+"\nAHORROS\n";
-
-                for (Saving s:savings.getAllSavingsByClient(c.client_id)
-                ) {
-                    clients = clients + "\t" + s.saving_type +"\n";
-                }
-                clients = clients + "CREDITOS\n";
-                for (Credit ct:credits.getAllCreditsByClient(c.client_id)
-                ) {
-                    clients = clients + "\t" + ct.credit_number + " " + ct.credit_type + " " + ct.monthly_fee+"\n";
-                }
-            }
-            tvClients.setText( clients);
-        } catch (Exception e) {
-            tvAhorros.setText(e.getMessage());
-        }
-    }
-
     public void InsertTypeCredits(){
         try {
             db.creditTypeDao().insertCreditTypes(new CreditType(0.075,"Hipotecario"));
@@ -165,37 +123,11 @@ public class MainActivity extends AppCompatActivity {
             db.creditTypeDao().insertCreditTypes(new CreditType(0.10,"Personal"));
             db.creditTypeDao().insertCreditTypes(new CreditType(0.12,"Viajes"));
         } catch (Exception e) {
-            tvClients.setText(e.getMessage());
-        }
-    }
-
-    public void getTypeCredits(){
-        try {
-            String creditTypes = "";
-            for (CreditType c:credits.getAllCreditsType()
-            ) {
-                creditTypes = creditTypes + c.credit_type_id + "  "+c.name + "  "+  c.interest_rate * 100 +"%\n" ;
-            }
-            tvClients.setText( creditTypes);
-        } catch (Exception e) {
-            tvAhorros.setText(e.getMessage());
-        }
-    }
-
-    public void AssignLoanToCustomers(){
-        try {
-        credits.AssignLoanToCustomer( "702600508",1,3,1000.00,5000.00);
-        credits.AssignLoanToCustomer("202600508",3,5,1500.00,5000.00);
-        credits.AssignLoanToCustomer("702600508",4,10,1200.00,5000.00);
-        } catch (Exception e) {
-            tvAhorros.setText(e.getMessage());
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
     public void LoginMain(){
-
-
-
         try{
             Intent intent;
             String user = username.getText().toString();
@@ -253,20 +185,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             tvAhorros.setText(e.getMessage());
         }
-    }
-
-    public void Login(){
-        String user = username.getText().toString();
-        //String pass = password.getText().toString();
-
-        Intent intent;
-        if(user.equals("admin")){
-            intent = new Intent(this, AdminPage.class);
-        }else{
-            intent = new Intent(this, ClientPage.class);
-        }
-        startActivity(intent);
-
     }
 
 }
