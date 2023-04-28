@@ -54,6 +54,7 @@ public class ClientPage extends AppCompatActivity {
 
     public void personalInfo(){
         Intent intent = new Intent(this, PersonalInfoPage.class);
+        intent.putExtra("CURRENT_CLIENT_ID", CURRENT_CLIENT_ID);
         startActivity(intent);
     }
 
