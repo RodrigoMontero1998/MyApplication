@@ -6,6 +6,7 @@ import com.example.myapplication.DataBaseConection.CreditType;
 import com.example.myapplication.DataBaseConection.Saving;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Credits {
     public AppDataBase db;
@@ -44,6 +45,10 @@ public class Credits {
 
     public List<Credit> getAllCreditsByClient(String client){
         return db.creditDao().getAllCreditsByClient(client);
+    }
+
+    public String getCreditTypeByType(Integer type){
+        return db.creditTypeDao().getAllCreditTypes().stream().filter(c -> c.credit_type_id.equals(type)).collect(Collectors.toList()).get(0).name;
     }
 
 }

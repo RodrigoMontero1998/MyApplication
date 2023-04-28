@@ -15,6 +15,10 @@ public interface SavingDao {
     @Query("SELECT * FROM saving WHERE client = :client")
     List<Saving> getAllSavingsByClient(String client);
 
+
+    @Query("SELECT * FROM saving WHERE client = :client AND saving_type = :saving_type")
+    Saving getAllSavingsByClientandType(String client,String saving_type);
+
     @Query("SELECT * FROM saving WHERE saving_number = :saving_number")
     Saving getSavingsByNumber( String saving_number);
 

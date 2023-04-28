@@ -85,16 +85,12 @@ public class CalculatorPage extends AppCompatActivity {
     }
 
     public void btncalculateMonthlyPayment(View vista){
-       // if(IsError()) {
-            try{
-                monthlyPayment.setText(calculateMonthlyPayment().toString());
-            }
-            catch (Exception e) {
-                Toast.makeText(CalculatorPage.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-      //  }else{
-       //     Toast.makeText(CreateClient.this, "Verificar que todos los campos tengan el formato correcto", Toast.LENGTH_SHORT).show();
-       // }
+        try{
+            monthlyPayment.setText(calculateMonthlyPayment().toString());
+        }
+        catch (Exception e) {
+            Toast.makeText(CalculatorPage.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
 

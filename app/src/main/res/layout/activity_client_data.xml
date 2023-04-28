@@ -8,15 +8,15 @@
     tools:context=".admin.ClientData">
 
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.978">
+        app:layout_constraintVertical_bias="0.0">
 
 
         <LinearLayout
@@ -31,8 +31,8 @@
                 android:layout_marginStart="68dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="40dp"
-                android:text="Asignar Préstamo"
                 android:gravity="center"
+                android:text="Asignar Préstamo"
                 android:textSize="34sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -46,17 +46,17 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextNumber4"
+                    android:id="@+id/etSearchClientById"
                     android:layout_width="240dp"
                     android:layout_height="53dp"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="20dp"
+                    android:background="@color/white"
                     android:ems="10"
                     android:hint="Cédula"
                     android:inputType="number"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:background="@color/white" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageButton
                     android:layout_width="70dp"
@@ -64,8 +64,11 @@
                     android:layout_marginTop="19dp"
                     android:layout_marginRight="50dp"
                     android:background="@color/purple_200"
+                    android:contentDescription="Buscar clientes"
                     android:elevation="50dp"
-                    android:foreground="@android:drawable/ic_menu_search"></ImageButton>
+                    android:foreground="@android:drawable/ic_menu_search"
+                    android:onClick="btnSearchClient" />
+
             </LinearLayout>
 
             <TableLayout
@@ -115,6 +118,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/etClientId"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -135,6 +139,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/etName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -155,6 +160,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/etSalary"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -175,6 +181,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/etTelephoneNumber"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -195,6 +202,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/etBirhtdate"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -215,6 +223,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/etCivilStatus"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -235,6 +244,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/etAddress"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -252,8 +262,7 @@
                 android:textColor="@color/purple_700"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                tools:textAlignment="center">
-            </TextView>
+                tools:textAlignment="center"></TextView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -261,24 +270,17 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextNumber3"
+                    android:id="@+id/etCreditAmount"
                     android:layout_width="190dp"
                     android:layout_height="51dp"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="10dp"
+                    android:background="@color/white"
                     android:ems="10"
                     android:hint="Monto"
                     android:inputType="number"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:background="@color/white" />
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="63dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="50dp"
-                    android:text="Verificar"
-                    android:textColor="@color/white"/>
+                    app:layout_constraintTop_toTopOf="parent" />
             </LinearLayout>
 
             <TextView
@@ -288,39 +290,41 @@
                 android:layout_marginTop="18dp"
                 android:gravity="bottom"
                 android:text="Plazo"
-                android:textSize="22dp"
                 android:textColor="@color/purple_700"
-                />
+                android:textSize="22dp" />
 
             <RadioGroup
-                android:id="@+id/my_radiogroup"
+                android:id="@+id/radioPlazo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp">
 
                 <RadioButton
-                    android:id="@+id/radio_3_years"
+                    android:id="@+id/radioPlazo_3_years"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="3 años"
+                    android:textColor="@color/white"
                     android:textSize="18dp"
-                    android:textColor="@color/white"/>
+                    android:tag = "3"/>
 
                 <RadioButton
-                    android:id="@+id/radio_5_years"
+                    android:id="@+id/radioPlazo_5_years"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:text="5 años"
                     android:textColor="@color/white"
-                    android:text="5 años"/>
+                    android:textSize="18dp"
+                    android:tag = "5"/>
 
                 <RadioButton
-                    android:id="@+id/radio_10_years"
+                    android:id="@+id/radioPlazo_10_years"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:text="10 años"
                     android:textColor="@color/white"
-                    android:text="10 años"/>
+                    android:textSize="18dp"
+                    android:tag = "10"/>
             </RadioGroup>
 
             <TextView
@@ -330,48 +334,86 @@
                 android:layout_marginTop="18dp"
                 android:gravity="bottom"
                 android:text="Tipo de Crédito"
-                android:textSize="22dp"
                 android:textColor="@color/purple_700"
-                />
+                android:textSize="22dp" />
 
             <RadioGroup
-                android:id="@+id/my_radiogroup_type"
+                android:id="@+id/radioCreditsTypes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp">
 
                 <RadioButton
-                    android:id="@+id/radio_75"
+                    android:id="@+id/radioCreditsTypes_75"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Hipotecario (7.5%)"
+                    android:textColor="@color/white"
                     android:textSize="18dp"
-                    android:textColor="@color/white"/>
+                    android:tag = "0.075"/>
 
                 <RadioButton
-                    android:id="@+id/radio_8"
+                    android:id="@+id/radioCreditsTypes_8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:text="Educación (8%)"
                     android:textColor="@color/white"
-                    android:text="Educación (8%)"/>
+                    android:textSize="18dp"
+                    android:tag = "0.08"/>
 
                 <RadioButton
-                    android:id="@+id/radio_10"
+                    android:id="@+id/radioCreditsTypes_10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:text="Personal (10%)"
                     android:textColor="@color/white"
-                    android:text="Personal (10%)"/>
+                    android:textSize="18dp"
+                    android:tag = "0.10"/>
 
                 <RadioButton
-                    android:id="@+id/radio_12"
+                    android:id="@+id/radioCreditsTypes_12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:text="Viaje (12%)"
                     android:textColor="@color/white"
-                    android:text="Viaje (12%)"/>
+                    android:textSize="18dp"
+                    android:tag = "0.12"/>
             </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="51dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Cuota Mensual:"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="@color/purple_700" />
+
+                <TextView
+                    android:id="@+id/creditMonthlyPayment"
+                    android:layout_width="166dp"
+                    android:layout_height="51dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="0.00"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="@color/white" />
+            </LinearLayout>
 
             <Button
                 android:layout_width="200dp"
@@ -379,14 +421,25 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:gravity="center"
+                android:onClick="btncalculateMonthlyPayment"
+                android:text="Calcular Cuota"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="@color/purple_200"/>
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/purple_200"
+                android:gravity="center"
+                android:onClick="btnAssignLoanToCustomer"
                 android:text="Asignar Credito"
                 android:textColor="#FFFFFF" />
 
 
         </LinearLayout>
     </ScrollView>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
