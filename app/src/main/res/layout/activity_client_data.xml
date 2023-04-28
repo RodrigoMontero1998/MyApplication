@@ -300,7 +300,7 @@
                 android:layout_marginLeft="50dp">
 
                 <RadioButton
-                    android:id="@+id/radio_3_years"
+                    android:id="@+id/radioPlazo_3_years"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="3 años"
@@ -309,7 +309,7 @@
                     android:tag = "3"/>
 
                 <RadioButton
-                    android:id="@+id/radio_5_years"
+                    android:id="@+id/radioPlazo_5_years"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="5 años"
@@ -318,7 +318,7 @@
                     android:tag = "5"/>
 
                 <RadioButton
-                    android:id="@+id/radio_10_years"
+                    android:id="@+id/radioPlazo_10_years"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10 años"
@@ -344,7 +344,7 @@
                 android:layout_marginLeft="50dp">
 
                 <RadioButton
-                    android:id="@+id/radio_75"
+                    android:id="@+id/radioCreditsTypes_75"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Hipotecario (7.5%)"
@@ -353,7 +353,7 @@
                     android:tag = "0.075"/>
 
                 <RadioButton
-                    android:id="@+id/radio_8"
+                    android:id="@+id/radioCreditsTypes_8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Educación (8%)"
@@ -362,7 +362,7 @@
                     android:tag = "0.08"/>
 
                 <RadioButton
-                    android:id="@+id/radio_10"
+                    android:id="@+id/radioCreditsTypes_10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Personal (10%)"
@@ -371,7 +371,7 @@
                     android:tag = "0.10"/>
 
                 <RadioButton
-                    android:id="@+id/radio_12"
+                    android:id="@+id/radioCreditsTypes_12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Viaje (12%)"

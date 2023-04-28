@@ -13,10 +13,12 @@ import android.widget.Toast;
 
 import com.example.myapplication.AppDataBase;
 import com.example.myapplication.DataBaseConection.Client;
+import com.example.myapplication.DataBaseConection.Credit;
 import com.example.myapplication.Logic.Clients;
 import com.example.myapplication.Logic.Credits;
 import com.example.myapplication.R;
-import com.example.myapplication.client.CalculatorPage;
+
+import java.util.List;
 
 public class ClientData extends AppCompatActivity {
     TextView etClientID;
@@ -112,7 +114,7 @@ public class ClientData extends AppCompatActivity {
         }
     }
 
-    Integer getTermInYers(RadioGroup rbtnGrp){
+    int getTermInYers(RadioGroup rbtnGrp){
         int selectedRadioButtonId = rbtnGrp.getCheckedRadioButtonId();
         if (selectedRadioButtonId != -1) {
             RadioButton selectedRadioButton = findViewById(selectedRadioButtonId);
@@ -121,7 +123,7 @@ public class ClientData extends AppCompatActivity {
         return -1;
     }
 
-    Double getAnnualInterestRate(RadioGroup rbtnGrp){
+    double getAnnualInterestRate(RadioGroup rbtnGrp){
         int selectedRadioButtonId = rbtnGrp.getCheckedRadioButtonId();
         if (selectedRadioButtonId != -1) {
             RadioButton selectedRadioButton = findViewById(selectedRadioButtonId);
@@ -129,7 +131,7 @@ public class ClientData extends AppCompatActivity {
         }
         return 0.00;
     }
-    Double calculateMonthlyPayment() throws Exception {
+    double calculateMonthlyPayment() throws Exception {
         String amountValue =  etCreditAmount.getText().toString();
         if(amountValue.isEmpty()){
             etCreditAmount.setError("Campo obligatorio");
@@ -153,30 +155,77 @@ public class ClientData extends AppCompatActivity {
 
     public void btncalculateMonthlyPayment(View vista){
         try{
-            creditMonthlyPayment.setText(calculateMonthlyPayment().toString());
+            creditMonthlyPayment.setText(String.valueOf(calculateMonthlyPayment()));
         }
         catch (Exception e) {
             Toast.makeText(ClientData.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
-
-    public void btnAssignLoanToCustomer(View vista){
-        if(!ID_SEARCH.isEmpty()){
-            try{
-                credits.AssignLoanToCustomer(
-                        ID_SEARCH,
-                        1,
-                        getTermInYers(radioPlazo),
-                        Double.parseDouble(etCreditAmount.getText().toString()),
-                        Double.parseDouble(etSalary.getText().toString())
-                );
-                Toast.makeText(ClientData.this,"Se asigno el credito con exito!", Toast.LENGTH_SHORT).show();
-            }
-            catch (Exception e) {
-                Toast.makeText(ClientData.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+    
+    void validateCreditType(Integer typeCredit) throws Exception {
+        if(typeCredit > 0){
+            List<Credit> creditList = credits.getAllCreditsByClient(ID_SEARCH);
+            if(!creditList.isEmpty()){
+                for (Credit c:creditList) {
+                    if(c.credit_type.equals(typeCredit)){
+                        throw new Exception("Error: Ya posee un credito " + credits.getCreditTypeByType(typeCredit));
+                    }
+                }
             }
         }else{
-            Toast.makeText(ClientData.this,"Debe asignar un cliente", Toast.LENGTH_SHORT).show();
+            throw new Exception("Error: valor 0 ");
         }
+    }
+    int getTypeCredit(RadioGroup rbtnGrp) throws Exception {
+        int type;
+            String AnnualInterestRate = String.valueOf(getAnnualInterestRate(rbtnGrp));
+
+            switch (AnnualInterestRate) {
+                case "0.075":
+                    type = 1;
+                    break;
+                case "0.08":
+                    type = 2;
+                    break;
+                case "0.10":
+                    type = 3;
+                    break;
+                default:
+                    type = 4;
+                    break;
+
+            }
+            validateCreditType(type);
+        return type;
+    }
+
+    public void btnAssignLoanToCustomer(View vista){
+        String amount_credits = etCreditAmount.getText().toString();
+        if(!amount_credits.isEmpty()) {
+            double amount_credit = Double.parseDouble(etCreditAmount.getText().toString());
+            if (amount_credit > 0) {
+                if (!ID_SEARCH.isEmpty()) {
+                    try {
+                        credits.AssignLoanToCustomer(
+                                ID_SEARCH,
+                                getTypeCredit(radioCreditsTypes),
+                                getTermInYers(radioPlazo),
+                                amount_credit,
+                                Double.parseDouble(etSalary.getText().toString())
+                        );
+                        Toast.makeText(ClientData.this, "Se asigno el credito con exito!", Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        Toast.makeText(ClientData.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(ClientData.this, "Debe asignar un cliente", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(ClientData.this, "Verifique los campos del formulario", Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(ClientData.this, "Campo del monto esta vacio", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

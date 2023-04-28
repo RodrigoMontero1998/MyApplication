@@ -67,12 +67,12 @@ public class MainActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(v -> LoginMain());
         buttonClose.setOnClickListener(v -> finishAffinity());
 
-        //createAdminUser();
-        //createClients();
+        createAdminUser();
+        createClients();
 
         //getSavingByClients();
 
-        //InsertTypeCredits();
+        InsertTypeCredits();
         //getTypeCredits();
 
        // getSavingByClients();
@@ -95,31 +95,47 @@ public class MainActivity extends AppCompatActivity {
         try {
             CURRENT_USER = admin.SaveNewUser("Admin","1234",1);
         } catch (Exception e) {
-            tvClients.setText(e.getMessage());
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
     public void createClients(){
         try {
-            admin.SaveNewClient("702600508","Rodrigo",
-                                5000.00,"86411100","09/05/1998",
-                                "Soltero(a)","Heredia");
+            admin.SaveNewClient("702600508","Rodrigo Castillo Navarro",
+                                380000.00,"86411100","09/05/1998",
+                                "Union Libre","Heredia");
             admin.SaveNewClient("102600508","Saray",
-                    5000.00,"86411100","09/05/1998",
+                    60000.00,"86411100","09/05/1998",
                     "Soltero(a)","Heredia");
-            admin.SaveNewClient("202600508","Joselyn",
-                    5000.00,"86411100","09/05/1998",
+            admin.SaveNewClient("202600508","Jose Mora Viquez",
+                    5000.00,"86411100","29/10/1996",
+                    "Soltero(a)","Limon");
+            admin.SaveNewClient("65959595","Rodolfo Parra Matinez",
+                    2000000.00,"86411100","09/05/1998",
+                    "Casado(a)","Cartago");
+            admin.SaveNewClient("62232656","Froylan Villareal Chavez",
+                    750000.00,"86411100","10/05/2000",
+                    "Soltero(a)","Alajuela");
+            admin.SaveNewClient("502680362","Calos Mora Valverde",
+                    650000.00,"86411100","09/10/1988",
+                    "Soltero(a)","Heredia");
+            admin.SaveNewClient("501420369","Alfonso Marino Catro",
+                    670000.00,"86411100","09/10/1968",
+                    "Soltero(a)","Heredia");
+            admin.SaveNewClient("201590357","Luis Mora Valverde",
+                    960000.00,"86411100","09/10/1968",
                     "Soltero(a)","Heredia");
 
+
         } catch (Exception e) {
-            tvAhorros.setText(e.getMessage());
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
     public void InsertTypeCredits(){
         try {
             db.creditTypeDao().insertCreditTypes(new CreditType(0.075,"Hipotecario"));
-            db.creditTypeDao().insertCreditTypes(new CreditType(0.8,"Educación"));
+            db.creditTypeDao().insertCreditTypes(new CreditType(0.08,"Educación"));
             db.creditTypeDao().insertCreditTypes(new CreditType(0.10,"Personal"));
             db.creditTypeDao().insertCreditTypes(new CreditType(0.12,"Viajes"));
         } catch (Exception e) {
